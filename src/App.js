@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import './css/app.css';
 import SearchIcon from './resources/search.svg';
 
-import MovieCard from './components/MovieCard';
+import MovieCard from './components/MovieCard'; 
 
 const API_KEY = process.env.API_KEY;
 
