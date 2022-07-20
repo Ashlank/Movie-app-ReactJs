@@ -8,8 +8,8 @@ import MovieCard from './components/MovieCard';
 
 const API_KEY = process.env.API_KEY;
 
-const API_URL = `https://imdb-api.com/API/Search/${API_KEY}/`;
-const API_URL_TOP = `https://imdb-api.com/en/API/MostPopularMovies/${API_KEY}/`;
+const API_URL = `https://imdb-api.com/API/Search/${process.env.API_KEY}/`;
+const API_URL_TOP = `https://imdb-api.com/en/API/MostPopularMovies/${process.env.API_KEY}/`;
 
 const App = () => {
 
