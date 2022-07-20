@@ -6,8 +6,7 @@ import SearchIcon from './resources/search.svg';
 
 import MovieCard from './components/MovieCard';
 
-// Warning
-const API_KEY = 'k_90n7l76v';
+const API_KEY = process.env.API_KEY;
 
 const API_URL = `https://imdb-api.com/API/Search/${API_KEY}/`;
 const API_URL_TOP = `https://imdb-api.com/en/API/MostPopularMovies/${API_KEY}/`;
