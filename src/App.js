@@ -1,63 +1,30 @@
-import React from "react";
-import { useState, useEffect } from "react";
+'use client'
+import Image from "next/image";
+import Link from "next/link";
 
-import "./css/app.css";
 import SearchIcon from "./resources/search.svg";
-
 import MovieCard from "./components/MovieCard";
 
-const API_TOKEN = process.env.API_TOKEN
+const App = ({ movies }) => {
 
-const options = {
-	method: "GET",
-	headers: {
-		accept: "application/json",
-		Authorization: API_TOKEN,
-	},
-};
-
-const API_URL = "https://api.themoviedb.org/3/movie/popular";
-const SEARCH_URL = "https://api.themoviedb.org/3/search/movie";
-
-const App = () => {
-	const [movies, setMovies] = useState([]);
-	const [searchTerm, setSearchTerm] = useState("");
-
-	const searchMovies = async (title) => {
-		if (title) {
-			const response = await fetch(`${SEARCH_URL}?query=${title}`, options);
-			const { results } = await response.json();
-			setMovies(results);
-            console.log(results)
-		} else {
-			const response = await fetch(`${API_URL}`, options);
-			const { results } = await response.json();
-			setMovies(results);
-		}
-	};
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        searchMovies(searchTerm)
-    }
-
-	useEffect(() => {
-		searchMovies();
-	}, []);
+	const handleSubmit = (e) => {
+		e.preventDefault()
+		window.location.search = `query=${e.target[0].value}`
+	}
 
 	return (
 		<>
 			<div className="container app">
-				<h1>Movie App</h1>
+				<Link href='/'>
+					<h1>Movie App</h1>
+				</Link>
 				<div className="search container">
 					<form onSubmit={handleSubmit}>
 						<input
 							placeholder="Buscar película"
-							value={searchTerm}
-							onChange={(e) => setSearchTerm(e.target.value)}
 						/>
-						<button type="button">
-							<img src={SearchIcon} alt="search icon" />
+						<button type="submit">
+							<Image src={SearchIcon} alt="search icon" />
 						</button>
 					</form>
 				</div>
