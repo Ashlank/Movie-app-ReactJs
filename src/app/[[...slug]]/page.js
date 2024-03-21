@@ -1,9 +1,5 @@
 import App from "../../App";
 
-export function generateStaticParams() {
-  return [{ slug: [''] }]
-}
-
 const API_URL = "https://api.themoviedb.org/3/movie/popular";
 const SEARCH_URL = "https://api.themoviedb.org/3/search/movie";
 const options = {
